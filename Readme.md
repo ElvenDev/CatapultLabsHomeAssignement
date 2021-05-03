@@ -17,7 +17,12 @@ For the application to work, you need to have installed [docker](https://www.doc
     
 ## Notes:
 - All the example data (fixtures) will be generated for you when you run `docker-compose up`
-- Add below code under web in docker-compose-yml if you plan any active development. Otherwise it slows it down on windows. This will connect your own folder with development. Otherwise it copies files (which is faster to demo, but doesn't use changed files).
-```
-        volumes:
-            - ./:/var/www```
+
+## In case of not working:
+
+There is a chance that docker web will set up faster than database. In that case, migrations and fixtures will fail. You can run manually these commands inside container:
+- `composer install -n`
+- `bin/console doc:mig:mig --no-interaction`
+- `bin/console doctrine:fixtures:load --no-interaction`
+Other option is rerunning the container by this command:
+- `docker-compose build web ; docker-compose up -d`
