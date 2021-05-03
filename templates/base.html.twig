@@ -3,17 +3,22 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+            <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+            <link href="/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
+            <link href="/css/font-awesome.css" rel="stylesheet">
+            <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+
+            <link href="/css/style.css" rel="stylesheet" type="text/css">
+            <link href="/css/pages/signin.css" rel="stylesheet" type="text/css">
         {% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
+        {% block javascripts %}
+            <script src="/js/jquery-1.7.2.min.js"></script>
+            <script src="/js/bootstrap.js"></script>
+        {% endblock %}
     </body>
 </html>
